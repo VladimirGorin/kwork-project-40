@@ -85,7 +85,7 @@ for index, row in df.iterrows():
         client.send_message("https://t.me/LeakednfBot", f"/inn {inn}")
 
         print(f"\nПолучаем информацию по ИНН: {inn}")
-        time.sleep(10)
+        time.sleep(20)
 
         text = client.get_messages("https://t.me/LeakednfBot", limit=1)[0].message
 
@@ -97,7 +97,7 @@ for index, row in df.iterrows():
 
         while True:
             client.send_message("https://t.me/Sveto4rus_bot", inn)
-            time.sleep(15)
+            time.sleep(20)
             text = client.get_messages("https://t.me/Sveto4rus_bot", limit=1)[0].message
 
             if "Необходимо быть подписанным на канал" in text:
