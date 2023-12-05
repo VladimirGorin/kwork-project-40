@@ -79,7 +79,7 @@ result_df_list = []
 
 
 for index, row in df.iterrows():
-    inn = str(row['ИНН'])
+    inn = f"{row['ИНН']:010d}"  
 
     try:
         client.send_message("https://t.me/LeakednfBot", f"/inn {inn}")
