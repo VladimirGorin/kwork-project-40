@@ -60,7 +60,8 @@ def extract_company_info(text):
     return company_info
 
 def extract_company_black_list(text):
-    risk_level = re.compile(r'Уровень риска: (\d+)')
+    risk_level = re.compile(r'Уровень риска: (.+)')
+
 
     risk_level_match = re.search(risk_level, text)
 
@@ -81,7 +82,7 @@ for index, row in df.iterrows():
         client.send_message("https://t.me/LeakednfBot", f"/inn {inn}")
 
         print(f"\nПолучаем информацию по ИНН: {inn}")
-        time.sleep(7)
+        time.sleep(10)
 
         text = client.get_messages("https://t.me/LeakednfBot", limit=1)[0].message
 
@@ -93,7 +94,7 @@ for index, row in df.iterrows():
 
         while True:
             client.send_message("https://t.me/Sveto4rus_bot", inn)
-            time.sleep(5)
+            time.sleep(15)
             text = client.get_messages("https://t.me/Sveto4rus_bot", limit=1)[0].message
 
             if "Необходимо быть подписанным на канал" in text:
