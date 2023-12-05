@@ -44,14 +44,17 @@ def extract_company_info(text):
     income_pattern = re.compile(r'Доходы за 2022: (.+)')
     employees_pattern = re.compile(r'Количество сотрудников: (.+)')
     email_pattern = re.compile(r'Электроная почта: (.+)')
+    company_name_pattern = re.compile(r'✅ ООО (.+)')
 
     inn_match = re.search(inn_pattern, text)
     income_match = re.search(income_pattern, text)
     employees_match = re.search(employees_pattern, text)
     email_match = re.search(email_pattern, text)
+    company_name_match = re.search(company_name_pattern, text)
 
     company_info = {
         'ИНН': inn_match.group(1).strip() if inn_match else None,
+        'Имя': company_name_match.group(1).strip() if company_name_match else None,
         'Доходы за 2022': income_match.group(1).strip() if income_match else None,
         'Количество сотрудников': employees_match.group(1).strip() if employees_match else None,
         'Электронная почта': email_match.group(1).strip() if email_match else None,
