@@ -40,11 +40,11 @@ if not client.is_user_authorized():
             print(f"Произошла ошибка: {e}")
 
 def extract_company_info(text):
-    inn_pattern = re.compile(r'ИНН: (\d+)')
-    income_pattern = re.compile(r'Доходы за 2022: (.+)')
-    employees_pattern = re.compile(r'Количество сотрудников: (.+)')
-    email_pattern = re.compile(r'Электроная почта: (.+)')
-    company_name_pattern = re.compile(r'✅ ООО (.+)')
+    inn_pattern = re.compile(r'├ ИНН: (\d+)')
+    income_pattern = re.compile(r'├ Доходы за 2022: (.+)')
+    employees_pattern = re.compile(r'├ Количество сотрудников: (.+)')
+    email_pattern = re.compile(r'├ Электронная почта: (.+)')
+    company_name_pattern = re.compile(r'✅ (.+)')
 
     inn_match = re.search(inn_pattern, text)
     income_match = re.search(income_pattern, text)
